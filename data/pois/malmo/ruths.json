@@ -1,0 +1,30 @@
+{
+  "id": "ruths-malmo",
+  "slug": "ruths",
+  "name": "Ruths",
+  "city": "Malmö",
+  "country": "Sweden",
+  "location": {
+    "latitude": 55.6061645,
+    "longitude": 12.9976916
+  },
+  "vibe": "casual",
+  "serves": [
+    "breakfast-brunch",
+    "bakery",
+    "lunch",
+    "dinner"
+  ],
+  "tags": [
+    "bakery",
+    "reservations"
+  ],
+  "recommendation": "A nicely casual restaurant. They serve breakfast, lunch and dinner and also have their own bakery. I have only been for dinner, which was delicious and well balanced. They have some walk-in spaces at the bar, but reservations are probably a good idea in the evenings.",
+  "googleMapsUrl": "https://maps.app.goo.gl/kmoS8Wgq3ro9HzfC6?g_st=ac",
+  "website": null,
+  "address": "Mäster Johansgatan 11, 211 21, Malmö",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-10-18",
+  "updatedAt": "2026-10-18"
+}
