@@ -1,0 +1,28 @@
+{
+  "id": "lenoteca-malmo",
+  "slug": "lenoteca",
+  "name": "L'Enoteca",
+  "city": "Malmö",
+  "country": "Sweden",
+  "location": {
+    "latitude": 55.6062059,
+    "longitude": 12.9949222
+  },
+  "vibe": "casual",
+  "serves": [
+    "dinner",
+    "beer-wine"
+  ],
+  "tags": [
+    "wine",
+    "italian"
+  ],
+  "recommendation": "An unassuming wine bar with excellent Italian food, and friendly bartenders who know their wines and will work with you to find something to your taste.",
+  "googleMapsUrl": "https://maps.app.goo.gl/BGfctNXgCZsAiTXS7?g_st=ac",
+  "website": null,
+  "address": "Västergatan 6C, 211 21 Malmö",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-10-18",
+  "updatedAt": "2026-10-18"
+}
