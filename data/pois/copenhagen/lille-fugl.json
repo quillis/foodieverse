@@ -8,7 +8,7 @@
     "latitude": 55.677557,
     "longitude": 12.577641
   },
-  "vibe": "no-frills",
+  "vibe": "hipster",
   "serves": [
     "coffee",
     "lunch"
@@ -23,5 +23,5 @@
   "images": [],
   "status": "active",
   "createdAt": "2026-10-15",
-  "updatedAt": "2026-10-15"
+  "updatedAt": "2026-10-19"
 }
