@@ -1,0 +1,29 @@
+{
+  "id": "bygul-copenhagen",
+  "slug": "bygul",
+  "name": "Bygul",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.6658623,
+    "longitude": 12.5785472
+  },
+  "vibe": "no-frills",
+  "serves": [
+    "cocktails",
+    "beer-wine"
+  ],
+  "tags": [
+    "favourite",
+    "wine",
+    "cocktails"
+  ],
+  "recommendation": "An excellent local bar, run by a motley crew of people who know their beverages, carefully select what they offer and are partial to a wide variety of musical selections as well. This place is great, local and fun. It's a no-frills kind of place with a delectable hipster selection of beer, wine and cocktails.",
+  "googleMapsUrl": "https://maps.app.goo.gl/de9uanvJ8pqZQZks5",
+  "website": null,
+  "address": "Egilsgade 20, kl., 2300 København S",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-10-20",
+  "updatedAt": "2026-10-20"
+}
