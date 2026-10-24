@@ -1,0 +1,30 @@
+{
+  "id": "lees-kitchen-amager-copenhagen",
+  "slug": "lees-kitchen-amager",
+  "name": "Lee's Kitchen Amager",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.659586,
+    "longitude": 12.60409
+  },
+  "vibe": "casual",
+  "serves": [
+    "dinner"
+  ],
+  "tags": [
+    "amager",
+    "chinese",
+    "big-portions"
+  ],
+  "recommendation": "Lee's has opened their second shop on Amager and it's excellent! Great casual vibe, excellent Chinese food. Our dinner was delicious and filling, as the portions are fairly big. Copenhagen has many new Asian food places opening, and Lee's is definitely worth your time.",
+  "googleMapsUrl": "https://maps.app.goo.gl/7PkeMYBGYQAAvWC6A?g_st=ac",
+  "website": null,
+  "address": "Tingvej 12, 2300 Copenhagen S",
+  "images": [
+    "01.jpg"
+  ],
+  "status": "active",
+  "createdAt": "2026-10-24",
+  "updatedAt": "2026-10-24"
+}
