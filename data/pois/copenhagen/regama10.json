@@ -1,0 +1,32 @@
+{
+  "id": "regama10-copenhagen",
+  "slug": "regama10",
+  "name": "Regama10",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.6673232,
+    "longitude": 12.5973431
+  },
+  "vibe": "casual",
+  "serves": [
+    "dinner",
+    "beer-wine"
+  ],
+  "tags": [
+    "wine",
+    "prix-fixe",
+    "local-ingredients",
+    "whisky"
+  ],
+  "recommendation": "Excellent casual wine bar with an affordable and absolutely delicious five-course dinner menu focusing on local ingredients, like a root that is apparently often called Danish wasabi, collected from the nearby shore. Their top-shelf whisky selection seriously rivals my own collection, and their wine is fab.",
+  "googleMapsUrl": "https://maps.app.goo.gl/LJUGwwnNdRsKjrYo8?g_st=ac",
+  "website": null,
+  "address": "Amagerbrogade 10, 2300 Copenhagen",
+  "images": [
+    "01.jpg"
+  ],
+  "status": "active",
+  "createdAt": "2026-10-24",
+  "updatedAt": "2026-10-24"
+}
