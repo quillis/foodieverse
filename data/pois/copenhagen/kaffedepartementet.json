@@ -1,0 +1,28 @@
+{
+  "id": "kaffedepartementet-copenhagen",
+  "slug": "kaffedepartementet",
+  "name": "Kaffedepartementet",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.707711,
+    "longitude": 12.524971
+  },
+  "vibe": "hipster",
+  "serves": [
+    "coffee"
+  ],
+  "tags": [
+    "work-friendly",
+    "tea",
+    "coffee"
+  ],
+  "recommendation": "A lovely coffee shop, great place to work or meet for a cuppa. Quiet, warm and comfortable, especially on rainy and grey days. Their matcha latte is legit and I am told their coffee is excellent.",
+  "googleMapsUrl": "https://maps.app.goo.gl/Q4FET67huMtJ29My7?g_st=ac",
+  "website": null,
+  "address": "Rentemestervej 64, 1. sal, 2400 København NV",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-10-28",
+  "updatedAt": "2026-10-28"
+}
