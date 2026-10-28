@@ -1,0 +1,31 @@
+{
+  "id": "syv-breakfast-club-copenhagen",
+  "slug": "syv-breakfast-club",
+  "name": "Syv Breakfast Club",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.661747,
+    "longitude": 12.597952
+  },
+  "vibe": "casual",
+  "serves": [
+    "breakfast-brunch",
+    "coffee",
+    "lunch"
+  ],
+  "tags": [
+    "amager",
+    "brunch",
+    "hidden-gem",
+    "cakes"
+  ],
+  "recommendation": "Shhhh... This is a secret, but please tell everyone about it 😏. Located at the Martini House on Sunday, Monday and Tuesday, days when the regular restaurant is closed, Syv is a breakfast spot run by Jan and Monika, formerly of Seks (what used to be one of the best breakfast/lunch spots in the city center).\n\nThere are many stories to tell here, but what you need to know is that on Sunday, Monday and Tuesday, from morning to early afternoon, you can get the most unique and delicious breakfast, brunch or lunch in town, or snag a coffee and amazing cheesecake, all made with love. It's in a spot on Amager that is out of the way, and it will surprise you with flavors and warmth every time. Monika and Jan are thinking they will be running this for just a few more months, but some of us are hoping they will just stay for a while.",
+  "googleMapsUrl": "https://maps.app.goo.gl/hJMJNVgZWEBmNYd26?g_st=ac",
+  "website": null,
+  "address": "Brigadevej 49, 2300 København S",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-10-28",
+  "updatedAt": "2026-10-28"
+}
