@@ -1,0 +1,31 @@
+{
+  "id": "kukai-ramen-copenhagen",
+  "slug": "kukai-ramen",
+  "name": "Kūkai Ramen",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.667111,
+    "longitude": 12.597554
+  },
+  "vibe": "no-frills",
+  "serves": [
+    "lunch",
+    "dinner"
+  ],
+  "tags": [
+    "ramen",
+    "vegan-options",
+    "tiny",
+    "no-reservations",
+    "amager"
+  ],
+  "recommendation": "Japanese-style ramen shop open for lunch and dinner, with no-frills bar seating and plastic crates under the chair for your jacket. The food options are few and very tasty. Have a traditional pork ramen or a vegan version, and try the gyōza or a few other appetizers. The space is tiny, so on cold days there may be a wait outside since there are no reservations. The wait is worth it.",
+  "googleMapsUrl": "https://maps.app.goo.gl/YrRUb9oF25NS9LZB9",
+  "website": null,
+  "address": "Amagerbrogade 14, 2300 Copenhagen S",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-10-30",
+  "updatedAt": "2026-10-30"
+}
