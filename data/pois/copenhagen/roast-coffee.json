@@ -1,0 +1,26 @@
+{
+  "id": "roast-coffee-copenhagen",
+  "slug": "roast-coffee",
+  "name": "ROAST Coffee",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.655732,
+    "longitude": 12.551586
+  },
+  "vibe": "hipster",
+  "serves": [
+    "coffee"
+  ],
+  "tags": [
+    "coffee"
+  ],
+  "recommendation": "Excellent coffee shop and roastery in what looks like a warehouse space. Somehow they still manage to make it feel warm and inviting.",
+  "googleMapsUrl": "https://maps.app.goo.gl/cHNG4jZEohmQteor8?g_st=ac",
+  "website": null,
+  "address": "Pladehals Allé 28, 2450 Copenhagen SV",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-11-07",
+  "updatedAt": "2026-11-07"
+}
