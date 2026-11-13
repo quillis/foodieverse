@@ -1,0 +1,27 @@
+{
+  "id": "pivo-copenhagen",
+  "slug": "pivo",
+  "name": "Pivo",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.674255,
+    "longitude": 12.559183
+  },
+  "vibe": "no-frills",
+  "serves": [
+    "beer-wine"
+  ],
+  "tags": [
+    "czech-beer",
+    "beer-hall"
+  ],
+  "recommendation": "Fancy some excellent Czech beer and beer-appropriate snacks? The well-known Czech beer hall from Malmö has opened a spot in Copenhagen. It is simple, crowded, fun, and the beer is plentiful.",
+  "googleMapsUrl": "https://maps.app.goo.gl/bKDojpLGaZjVGdZy5",
+  "website": null,
+  "address": "Gammel Kongevej 7, 1610 København V",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-11-13",
+  "updatedAt": "2026-11-13"
+}
