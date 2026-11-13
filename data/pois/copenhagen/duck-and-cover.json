@@ -1,0 +1,28 @@
+{
+  "id": "duck-and-cover-copenhagen",
+  "slug": "duck-and-cover",
+  "name": "Duck and Cover",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.671901,
+    "longitude": 12.552392
+  },
+  "vibe": "hipster",
+  "serves": [
+    "cocktails"
+  ],
+  "tags": [
+    "cocktails",
+    "whisky",
+    "favourite"
+  ],
+  "recommendation": "One of my favorite cocktail bars in town. This place is both classy-hipster and relaxed: leather couches and fancy cocktails, a phenomenal collection of excellent bourbon and inventive mixologists accommodating your tastes. The staff is really cool and the clientele is varied. Check it out for a drink or two.",
+  "googleMapsUrl": "https://maps.app.goo.gl/Z6Kyef15v9L9uc638?g_st=ac",
+  "website": null,
+  "address": "Dannebrogsgade 6, 1660 Copenhagen V",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-11-13",
+  "updatedAt": "2026-11-13"
+}
