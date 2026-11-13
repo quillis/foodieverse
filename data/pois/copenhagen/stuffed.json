@@ -1,0 +1,29 @@
+{
+  "id": "stuffed-copenhagen",
+  "slug": "stuffed",
+  "name": "Stuffed.",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.673845,
+    "longitude": 12.559308
+  },
+  "vibe": "casual",
+  "serves": [
+    "dinner"
+  ],
+  "tags": [
+    "tiny",
+    "reservations",
+    "late-night",
+    "small-plates"
+  ],
+  "recommendation": "Flavorful, inventive, warm and delicious food, excellent drinks, relaxed atmosphere, and they are open late for dinner (to be seriously appreciated in Copenhagen). The food is a selection of Indian and Latin American tasty bits and bites, all done beautifully and precisely. The place is casual and relaxed but tiny, so reservations are recommended.",
+  "googleMapsUrl": "https://maps.app.goo.gl/V3z5EyhR446M38G8A?g_st=ac",
+  "website": null,
+  "address": "Sankt Jørgens Allé 6, 1615 København V",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-11-13",
+  "updatedAt": "2026-11-13"
+}
