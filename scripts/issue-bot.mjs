@@ -16,6 +16,8 @@ const event = JSON.parse(readFileSync(GITHUB_EVENT_PATH, 'utf8'));
 const issue = event.issue;
 const STATE_RE = /<!-- foodieverse-state:([A-Za-z0-9+/=]+) -->/;
 const YES_RE = /^\s*(yes|y|yes please|publish|ok|okay|ja|sì|si|oui|go)\s*[.!👍]*\s*$/i;
+// "move to Copenhagen", "change city to Copenhagen from Frederiksberg", "city: Copenhagen"
+const MOVE_RE = /\b(?:move(?:d)?(?: it)? to|(?:change|set) (?:the )?city(?: location)? to|city:)\s*(\p{L}[\p{L} '-]*?)(?=\s+from\b|[.,;!?\n]|$)/iu;
 const tmp = mkdtempSync(join(tmpdir(), 'foodieverse-'));
 
 // ---------- GitHub API ----------
@@ -284,7 +286,7 @@ function previewMarkdown(p, { photos = 0, notes = [], diff = null, questions = [
 }
 
 function textDiff(before, after) {
-  const keys = ['name', 'vibe', 'serves', 'tags', 'status', 'address', 'website', 'recommendation'];
+  const keys = ['name', 'city', 'country', 'vibe', 'serves', 'tags', 'status', 'address', 'website', 'recommendation'];
   const out = [];
   for (const k of keys) {
     const a = JSON.stringify(before[k] ?? null);
@@ -514,6 +516,8 @@ async function applyChangeRequest(state, request) {
         understood.push(`${remove ? 'removed' : 'when to go:'} ${servesLabels(remove ? simple.serves : current.serves).join(', ')}`);
       }
       if (simple.status) { current.status = simple.status; understood.push(simple.status); }
+      const move = request.match(MOVE_RE);
+      if (move && state.kind === 'update' && slugify(move[1])) { current.city = move[1].trim(); understood.push(`moved to ${current.city}`); }
       if (simple.tags?.length) {
         const remove = /\b(remove|delete|drop|without)\b/i.test(request);
         const tags = cleanTags(simple.tags);
@@ -523,7 +527,7 @@ async function applyChangeRequest(state, request) {
       notes.push(
         understood.length
           ? `Changed: ${understood.join(', ')}.`
-          : 'Without the AI I only understand no-frills / hipster / casual / fancy, when to go ("lunch, dinner", "add cocktails"), `#tags` (add, or "remove #tag") and "closed" / "reopened". Edit the issue to change anything else.',
+          : 'Without the AI I only understand no-frills / hipster / casual / fancy, when to go ("lunch, dinner", "add cocktails"), `#tags` (add, or "remove #tag"), "closed" / "reopened" and "move to <city>". Edit the issue to change anything else.',
       );
     } else {
       let change = null;
@@ -534,7 +538,7 @@ async function applyChangeRequest(state, request) {
       }
       if (change) {
         if (/original text|my text|exactly as (i )?wrote/i.test(request) && state.original) change.recommendation = state.original;
-        for (const k of ['name', 'vibe', 'recommendation', 'status', 'address', 'website']) {
+        for (const k of ['name', 'city', 'country', 'vibe', 'recommendation', 'status', 'address', 'website']) {
           if (change[k] !== null && change[k] !== undefined) current[k] = change[k];
         }
         if (change.serves) current.serves = cleanServes(change.serves);
@@ -556,7 +560,7 @@ async function applyChangeRequest(state, request) {
   }
   const original = JSON.parse(readFileSync(poiPaths(...state.ref.split('/')).json, 'utf8'));
   state.patch = {};
-  for (const k of ['name', 'vibe', 'serves', 'tags', 'recommendation', 'status', 'address', 'website']) {
+  for (const k of ['name', 'city', 'country', 'vibe', 'serves', 'tags', 'recommendation', 'status', 'address', 'website']) {
     if (JSON.stringify(current[k] ?? null) !== JSON.stringify(original[k] ?? null)) state.patch[k] = current[k];
   }
   if (!Object.keys(state.patch).length && !state.images.length) notes.push('Nothing to change yet — reply with what should change.');
@@ -580,11 +584,17 @@ async function publish(state) {
     const patchFile = join(tmp, 'patch.json');
     writeFileSync(patchFile, JSON.stringify(state.patch));
     result = runPoi(['update', state.ref, patchFile, ...imageArgs]);
-    const p = JSON.parse(readFileSync(poiPaths(...state.ref.split('/')).json, 'utf8'));
-    message = state.patch.status && state.patch.status !== 'active' ? `${state.patch.status === 'closed' ? 'Close' : 'Update'} ${p.name}: ${state.patch.status}` : `Update ${p.name} (${p.city})`;
   }
   if (result.code !== 0) return comment(`Publishing failed — nothing was changed:\n\n\`\`\`\n${result.out}\n\`\`\``);
   const written = result.out.match(/wrote data\/pois\/([a-z0-9-]+)\/([a-z0-9-]+)\.json/);
+  if (state.kind !== 'add') {
+    // A move changes the file's path, so read it from where it was written.
+    const p = JSON.parse(readFileSync(poiPaths(...(written ? written.slice(1, 3) : state.ref.split('/'))).json, 'utf8'));
+    const from = state.ref.split('/')[0];
+    message = slugify(p.city) !== from
+      ? `Move ${p.name} to ${p.city}`
+      : state.patch.status && state.patch.status !== 'active' ? `${state.patch.status === 'closed' ? 'Close' : 'Update'} ${p.name}: ${state.patch.status}` : `Update ${p.name} (${p.city})`;
+  }
   const validate = spawnSync('npm', ['run', '-s', 'validate'], { cwd: ROOT, encoding: 'utf8' });
   if (validate.status !== 0) return comment(`Publishing failed — the collection didn't validate:\n\n\`\`\`\n${validate.stdout}${validate.stderr}\n\`\`\``);
 

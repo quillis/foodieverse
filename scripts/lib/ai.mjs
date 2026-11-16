@@ -99,13 +99,15 @@ Existing tags with usage counts: ${tagList(existingTags)}
 ${request}
 </request>
 
-Return only the fields that must change; use null for everything else. "tags" and "serves" are the complete new lists when they change. If she supplies new recommendation text, apply the editing policy to it; if she asks to keep her text exactly, copy it verbatim. If she asks to rewrite only part, change only that part. Status values: ${STATUSES.join(', ')} ("closed" for places that closed, "archived" to hide). In "reply", write one short sentence summarising what you changed, or what you could not do.`,
+Return only the fields that must change; use null for everything else. "tags" and "serves" are the complete new lists when they change. If she supplies new recommendation text, apply the editing policy to it; if she asks to keep her text exactly, copy it verbatim. If she asks to rewrite only part, change only that part. Status values: ${STATUSES.join(', ')} ("closed" for places that closed, "archived" to hide). Change "city" only when she asks to move the place to another city; use the English city name (Copenhagen, not København), and change "country" only if the new city is in another country. Moving does not change the address unless she asks. In "reply", write one short sentence summarising what you changed, or what you could not do.`,
     {
       type: 'object',
       additionalProperties: false,
-      required: ['name', 'vibe', 'serves', 'tags', 'recommendation', 'status', 'address', 'website', 'reply'],
+      required: ['name', 'city', 'country', 'vibe', 'serves', 'tags', 'recommendation', 'status', 'address', 'website', 'reply'],
       properties: {
         name: nullable({ type: 'string' }),
+        city: nullable({ type: 'string', description: 'New city in English, only when she asks to move the place.' }),
+        country: nullable({ type: 'string', description: 'New country, only when the move crosses a border.' }),
         vibe: nullable({ type: 'string', enum: VIBE_IDS }),
         serves: nullable({ type: 'array', items: { type: 'string', enum: SERVES_IDS } }),
         tags: nullable(tagsSchema),
