@@ -1,5 +1,5 @@
 {
-  "id": "alf-frederiksberg",
+  "id": "alf-copenhagen",
   "slug": "alf",
   "name": "Alf",
   "city": "Copenhagen",
@@ -24,5 +24,5 @@
   "images": [],
   "status": "active",
   "createdAt": "2026-11-15",
-  "updatedAt": "2026-11-15"
+  "updatedAt": "2026-11-16"
 }
