@@ -49,8 +49,13 @@ Update Bar Vivant, Copenhagen: make it fancy
 Update Bar Vivant, Copenhagen: it has closed
 ```
 
+```
+Update Alf, Frederiksberg: move to Copenhagen
+```
+
 You can also attach photos to add to the place. Without AI, the vibe, when to
-go, `#tags` and "closed" / "reopened" are understood. With AI, anything in plain
+go, `#tags`, "closed" / "reopened" and "move to <city>" are understood. Moving
+a place changes its page link. With AI, anything in plain
 words works ("say it's mainly worth it for the wine").
 
 ## On the website

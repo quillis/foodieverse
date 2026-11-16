@@ -3,6 +3,7 @@
 //
 //   npm run poi -- add <draft.json> [--image <file>]... [--dry-run]
 //   npm run poi -- update <city>/<slug> <patch.json> [--image <file>]... [--replace-images] [--dry-run]
+//   npm run poi -- move <city>/<slug> <New City> [--dry-run]
 //   npm run poi -- status <city>/<slug> <active|temporarily-closed|closed|archived> [--dry-run]
 //   npm run poi -- show <city>/<slug>
 //   npm run poi -- find <text>
@@ -11,8 +12,12 @@
 // recommendation, googleMapsUrl, website, address, imageAlt. id, slug, dates,
 // status and image file names are filled in here. --dry-run prints the
 // preview and validation result without writing anything.
-import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, rmSync } from 'node:fs';
-import { join, relative } from 'node:path';
+//
+// "move" (or an update patch with a different "city") moves the POI file and
+// its photos to the new city's folders and updates city, id and updatedAt.
+// The slug and address are kept; the page URL changes.
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, rmSync, renameSync, rmdirSync } from 'node:fs';
+import { join, relative, dirname } from 'node:path';
 import sharp from 'sharp';
 import {
   loadPois, validatePoi, findDuplicates, findNearby, slugify, today, poiPaths, taxonomy, ROOT,
@@ -97,8 +102,8 @@ async function importImages(files, destDir, startIndex) {
 
 function finish(poi, file, others, extra = {}) {
   const errors = validatePoi(poi, { citySlug: slugify(poi.city), fileSlug: poi.slug }).filter(
-    // Images are not on disk yet during a dry run.
-    (e) => !(dryRun && e.startsWith('image ') && e.includes('not found')),
+    // Images are not on disk yet during a dry run, or before a move.
+    (e) => !((dryRun || extra.imagesPending) && e.startsWith('image ') && e.includes('not found')),
   );
   const duplicates = findDuplicates(poi, others);
   const nearby = findNearby(poi, others).filter((n) => !duplicates.includes(n));
@@ -161,13 +166,27 @@ switch (cmd) {
     finish(poi, json, all, { images: imageNames });
     break;
   }
+  case 'move':
   case 'update': {
     const { citySlug, slug, file, poi: before } = locate(args[0]);
-    const patch = args[1] ? readJson(args[1]) : {};
+    let patch;
+    if (cmd === 'move') {
+      const city = args.slice(1).join(' ').trim();
+      if (!city) die('usage: move <city>/<slug> <New City> [--dry-run]');
+      if (slugify(city) === citySlug) die(`${before.name} is already in ${before.city}`);
+      patch = { city };
+    } else {
+      patch = args[1] ? readJson(args[1]) : {};
+    }
     for (const k of ['id', 'slug', 'createdAt', 'images']) {
       if (k in patch) die(`"${k}" cannot be patched (images: use --image / --replace-images)`);
     }
-    if (patch.city && slugify(patch.city) !== citySlug) die('moving a POI to another city: archive it and add it again');
+    const newCitySlug = patch.city ? slugify(patch.city) : citySlug;
+    if (!newCitySlug) die(`"${patch.city}" is not a usable city name`);
+    const moving = newCitySlug !== citySlug;
+    const target = poiPaths(newCitySlug, slug);
+    if (moving && existsSync(target.json)) die(`a place already exists at ${relative(ROOT, target.json)}`);
+    if (moving && existsSync(target.images)) die(`photos already exist at ${relative(ROOT, target.images)}`);
     const { images: imgDir } = poiPaths(citySlug, slug);
     let images = before.images ?? [];
     if (replaceImages) {
@@ -182,8 +201,26 @@ switch (cmd) {
     }
     const after = { ...before, ...patch, images, updatedAt: today() };
     for (const [k, v] of Object.entries(patch)) if (v === undefined) delete after[k];
+    if (moving) after.id = `${slug}-${newCitySlug}`;
     printDiff(before, after);
-    finish(after, file, all.filter((p) => p.id !== before.id));
+    if (!moving) {
+      finish(after, file, all.filter((p) => p.id !== before.id));
+      break;
+    }
+    if (!dryRun) mkdirSync(dirname(target.json), { recursive: true });
+    finish(after, target.json, all.filter((p) => p.id !== before.id), { imagesPending: true });
+    if (dryRun) {
+      console.log(`(dry run — would remove ${relative(ROOT, file)}${existsSync(imgDir) ? ` and move its photos to ${relative(ROOT, target.images)}` : ''})`);
+      break;
+    }
+    rmSync(file);
+    if (existsSync(imgDir)) {
+      mkdirSync(dirname(target.images), { recursive: true });
+      renameSync(imgDir, target.images);
+    }
+    removeIfEmpty(dirname(file));
+    removeIfEmpty(dirname(imgDir));
+    console.log(`✓ moved ${relative(ROOT, file)} → ${relative(ROOT, target.json)}`);
     break;
   }
   case 'status': {
@@ -210,8 +247,12 @@ switch (cmd) {
     break;
   }
   default:
-    console.log(readFileSync(new URL(import.meta.url), 'utf8').split('\n').slice(1, 14).join('\n').replace(/^\/\/ ?/gm, ''));
+    console.log(readFileSync(new URL(import.meta.url), 'utf8').split('\n').slice(1, 19).join('\n').replace(/^\/\/ ?/gm, ''));
     process.exit(cmd ? 1 : 0);
+}
+
+function removeIfEmpty(dir) {
+  if (existsSync(dir) && readdirSync(dir).length === 0) rmdirSync(dir);
 }
 
 function printDiff(before, after) {

@@ -28,6 +28,7 @@ npm run poi -- add draft.json --image a.jpg --image b.jpg --dry-run    # preview
 npm run poi -- add draft.json --image a.jpg --image b.jpg              # write
 npm run poi -- update <city>/<slug> patch.json [--image x.jpg] [--replace-images] [--dry-run]
 npm run poi -- status <city>/<slug> closed [--dry-run]
+npm run poi -- move <city>/<slug> "<New City>" [--dry-run]
 npm run validate                                  # whole collection
 ```
 
@@ -99,6 +100,10 @@ Irina sends a Google Maps link, her text and maybe photos.
   without closing it. Delete files only if Irina explicitly asks to
   delete, and confirm first.
 - Add photos to an existing place with `poi update <ref> --image …`.
+- "X is in Y, not Z" / "move X to Y": `poi move <ref> "<Y>" --dry-run`, show the
+  preview, apply on "yes". It moves the file and photos and updates `city` and
+  `id`; the address stays unless she asks. The page link changes, so give her
+  the new one. Never move files by hand.
 - Every change needs the same light confirmation: request → preview → yes.
 
 ## Importing from the review sheet
