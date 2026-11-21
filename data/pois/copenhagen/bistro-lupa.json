@@ -1,0 +1,29 @@
+{
+  "id": "bistro-lupa-copenhagen",
+  "slug": "bistro-lupa",
+  "name": "Bistro Lupa",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.703514,
+    "longitude": 12.585046
+  },
+  "vibe": "fancy",
+  "serves": [
+    "dinner"
+  ],
+  "tags": [
+    "vegan-options",
+    "affordable",
+    "small-plates",
+    "prix-fixe"
+  ],
+  "recommendation": "If you are up for exploring plant-based cuisine for dinner, Lupo is excellent. This is part of the Ark empire. Ark of course has its Michelin stars, but Lupo is the bistro version: absolutely excellent, delicious and much more affordable. Small plates and reasonably affordable 5- and 7-course prix fixe meals.",
+  "googleMapsUrl": "https://maps.app.goo.gl/7ZMkvzvrkqoFrd2k6?g_st=ac",
+  "website": null,
+  "address": "Marstalsgade 8, 2100, Copenhagen",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-11-21",
+  "updatedAt": "2026-11-21"
+}
