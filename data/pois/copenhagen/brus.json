@@ -1,0 +1,29 @@
+{
+  "id": "brus-copenhagen",
+  "slug": "brus",
+  "name": "BRUS",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.6921531,
+    "longitude": 12.5561452
+  },
+  "vibe": "hipster",
+  "serves": [
+    "dinner",
+    "beer-wine"
+  ],
+  "tags": [
+    "craft-beer",
+    "brewpub",
+    "large-groups"
+  ],
+  "recommendation": "If you are looking for a sizable place with a great beer selection and excellent food, Brus is that place. This is To Øl's brewpub, and they have a well-curated and extensive beer selection that goes well with excellent hipster-reinterpreted pub food. Great for large groups and small parties; great for just drinks or dinner and drinks. It's large, it's loud, and it's fun.",
+  "googleMapsUrl": "https://maps.app.goo.gl/RbeV47dFw21K9XgAA",
+  "website": null,
+  "address": "Guldbergsgade 29F, 2200 Copenhagen N",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-11-23",
+  "updatedAt": "2026-11-23"
+}
