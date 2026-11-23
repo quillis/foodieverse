@@ -1,0 +1,30 @@
+{
+  "id": "mirabelle-copenhagen",
+  "slug": "mirabelle",
+  "name": "Mirabelle",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.6923792,
+    "longitude": 12.5561481
+  },
+  "vibe": "casual",
+  "serves": [
+    "bakery",
+    "dinner"
+  ],
+  "tags": [
+    "bakery",
+    "italian",
+    "local-ingredients",
+    "small-plates"
+  ],
+  "recommendation": "A lovely bakery during the day and an excellent Italian restaurant in the evenings. A relaxed and casual place with outstanding food quality. Much of the food is made from local ingredients, with bread and soft cheese, such as mozzarella and burrata, made on-site. They offer cheese, charcuterie, pasta dishes and creatively constructed small veggie plates. Mirabelle is a sister restaurant to Bæst, both owned by Christian Puglisi. So if you want pizza, go next door!",
+  "googleMapsUrl": "https://maps.app.goo.gl/PugM4cZF34ZPsVHr7",
+  "website": null,
+  "address": "Guldbergsgade 29A, 2200 København N",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-11-23",
+  "updatedAt": "2026-11-23"
+}
