@@ -1,0 +1,32 @@
+{
+  "id": "dzidra-copenhagen",
+  "slug": "dzidra",
+  "name": "Dzidra",
+  "city": "Copenhagen",
+  "country": "Denmark",
+  "location": {
+    "latitude": 55.6983263,
+    "longitude": 12.5439781
+  },
+  "vibe": "no-frills",
+  "serves": [
+    "coffee",
+    "bakery",
+    "lunch"
+  ],
+  "tags": [
+    "tea",
+    "hidden-gem",
+    "norrebro",
+    "art-gallery",
+    "pop-ups"
+  ],
+  "recommendation": "In an out-of-the-way corner of Nørrebro, you can find a lovely little coffee shop and café. Dzidra is a neighbourhood place - warm and fun, happy to morph into a temporary art gallery, host a poetry evening, or do creative food pop-ups for occasional and fabulous dinners. For the regular everyday, you can get an excellent lunch, and their scones are simply divine. Most importantly, they serve excellent Japanese tea and brew said tea at the correct temperature! This is unusual even in Copenhagen and an important point for a tea nerd ;).",
+  "googleMapsUrl": "https://maps.app.goo.gl/K6KVwf19Txo5LECP9",
+  "website": null,
+  "address": "Baldersgade 8, 2200 Copenhagen N",
+  "images": [],
+  "status": "active",
+  "createdAt": "2026-11-23",
+  "updatedAt": "2026-11-23"
+}
